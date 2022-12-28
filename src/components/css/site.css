@@ -1,0 +1,31 @@
+.flex-even-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
+.pb-20 {
+  padding-bottom: 20px !important;
+}
+
+
+.one-em-padd {
+    padding: 1em;
+}
+
+.rotate {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
