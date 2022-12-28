@@ -1,0 +1,180 @@
+.App {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.angel-battles .ab-modal {
+  display: flex !important;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ab-modal .header {
+  font-size: 1em !important;
+}
+
+.ab-modal .meta {
+  font-size: 0.75em !important;
+}
+
+.pack-angel-section,
+.pack-pet-section {
+  height: 20%;
+}
+
+.pack-accessory-section {
+  height: 60%;
+  margin-bottom: 20px;
+}
+
+.hover-cursor {
+  cursor: pointer;
+}
+
+.ticket-balance {
+  margin-top: 4px;
+  font-size: 11px;
+}
+
+.pack-reveal {
+  height: 475px;
+  background-color: white;
+}
+
+.pack-reveal-image {
+  width: 100%;
+}
+
+.pack-reveal-info {
+  padding-top: 10px;
+}
+
+.custom-card-status-header {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.custom-card-status-header .icon {
+  cursor: pointer;
+}
+
+.custom-card-status-content {
+  max-height: calc(80vh - 10em);
+  overflow: auto;
+}
+
+.new-cards-header {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.new-cards-header .icon {
+  cursor: pointer;
+}
+
+.new-cards-content {
+  max-height: calc(80vh - 10em);
+  overflow: auto;
+}
+
+.custom-mtn-input-label {
+  text-align: left;
+}
+
+.card-stats {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-mtn-mountains {
+  width: fit-content !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.web3modal-modal-lightbox {
+  z-index: 999 !important;
+}
+
+.ab-toast-success {
+  --toastify-color-light: #07bc0c;
+  --toastify-icon-color-success: white;
+  --toastify-text-color-light: white;
+  --toastify-color-progress-success: #ffffffb3;
+}
+
+.ab-toast-success .Toastify__close-button--light {
+  color: white;
+  opacity: unset;
+}
+
+.ab-toast-success .Toastify__close-button {
+  opacity: unset;
+}
+
+.vs-defenders {
+  margin-bottom: -100px;
+}
+
+.mtn-cancel-btn {
+  margin-top: 20px !important;
+}
+
+.battle-mtn-results-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.battle-mtn-results-content-header {
+  padding: 1em;
+}
+
+.battle-mtn-results-content-body {
+  padding: 1em;
+}
+
+.battle-mtn-results-ribbon-img {
+  padding: 1em;
+}
+
+.battle-mtn-results-battle-again{
+  padding: 1em;
+}
+
+
+.confetti-container {
+  margin: 0 auto 0 auto;
+  width: 10px;
+}
