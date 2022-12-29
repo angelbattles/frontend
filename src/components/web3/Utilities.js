@@ -458,7 +458,7 @@ const breedingDelay = () => getPetsContract().methods.breedingDelay().call();
 
 const breedPets = (petId1, petId2, currentAddress, options) => {
     options.from = currentAddress;
-    getPetsContract()
+    return getPetsContract()
         .methods.Breed(petId1, petId2)
         .send(options);
 }
