@@ -374,7 +374,7 @@ const BreedingView = ({ cards, breedingCost, refreshAllTokens }) => {
         </>
       ) : (
         <>
-          {haloBalance < breedingCost ? (
+          {parseInt(haloBalance, 10) < parseInt(breedingCost, 10) ? (
             <div>
               You need more Halo tokens to be able to breed. Check out the
               account page to claim or earn some from the battles{' '}
