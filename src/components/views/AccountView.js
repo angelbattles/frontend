@@ -27,7 +27,7 @@ const AccountView = () => {
     const [hasPet20Approval, setHasPet20Approval] = useState(false);
     const [hasStoreApproval, setHasStoreApproval] = useState(false);
     const [haloBalance, setHaloBalance] = useState(0);
-    const [selectedAddress, setSelectedAddress] = useState(null);
+    const [selectedAddress, setSelectedAddress] = useState('null');
     const [currentAddress, setCurrentAddress] = useState(
         '0x0000000000000000000000000000000000000001'
     );
@@ -399,7 +399,7 @@ const AccountView = () => {
                     when anyone wins a battle.
                 </p>
                 <select onChange={(e) => setSelectedAddress(e.target.value)}>
-                    <option value={null}> Select a Stream </option>
+                    <option value={'null'}> Select a Stream </option>
                     <option value={vs_battle_address}> VS Battle Contract</option>
                     <option value={skale_battle_address}> Arena Battle Contract</option>
                     <option value={light_angel_address}> Light Angels Mountain</option>
@@ -414,7 +414,7 @@ const AccountView = () => {
                         <option value={currentAddress}> My Address </option>
                     )}
                 </select>
-                {selectedAddress !== null && (
+                {selectedAddress !== 'null' && (
                     <StreamClaimer key={selectedAddress} claimAddress={selectedAddress} />
                 )}
             </div>
