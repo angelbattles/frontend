@@ -146,39 +146,25 @@ const getTokenIds = async (
     carddata_contract
 ) => {
     const tokenIds = [];
-    const duplicateIds = [];
+    let i = 0;
+    let id = 0
 
-    for (let i = 0; i < numTokensOwned; i++) {
-        await carddata_contract.methods
+    do {
+        id = await carddata_contract.methods
             .getABTokenByIndex(currentAddress, i)
             .call()
-            .then((id) => {
-                // Check if id is a duplicate.
-                // This could happen if a user sold a token and then bought it back
+        // Check if id is a duplicate.
+        // This could happen if a user sold a token and then bought it back
+        if (!tokenIds.includes(id) && id !== "0") {
+            console.log('Address has owned token id: ', id)
+            tokenIds.push(id);
+        }
 
-                if (!tokenIds.includes(id)) {
-                    console.log('Address has owned token id: ', id)
-                    tokenIds.push(id);
-                } else {
-                    duplicateIds.push(id);
-                }
-            })
-            .catch(() => tokenIds.push(undefined));
-    }
+        i = i + 1;
 
-    // Search for additional tokens when there are duplicates
-    for (let i = numTokensOwned; i < numTokensOwned + duplicateIds.length; i++) {
-        await carddata_contract.methods
-            .getABTokenByIndex(currentAddress, i)
-            .call()
-            .then((id) => {
-                if (!tokenIds.includes(id)) {
-                    console.log('Address owns token id: ', id)
-                    tokenIds.push(id);
-                }
-            })
-            .catch(() => tokenIds.push(undefined));
     }
+    while (id !== "0")
+    console.log('returning tokens ', tokenIds)
 
     return tokenIds;
 };
@@ -353,7 +339,7 @@ const getAura = (oldAura) => {
 //Function called on app load that grabs the current and main numbers of tokens from the chain.
 const getAllTokenNumbers = async () => {
     let current = [];
-    
+
     let carddata_contract = getCardDataContract();
     for (var i = 0; i < 73; i++) {
         try {
@@ -689,7 +675,7 @@ const changeConditionsCommit = (battleMtn, currentAddress, options) => {
             .send(options);
 };
 
-const changeConditionsReveal =  (battleMtnAddress, currentAddress, options) => {
+const changeConditionsReveal = (battleMtnAddress, currentAddress, options) => {
     if (!currentAddress) {
         console.log('changeConditionsReveal: address needed');
         return;
@@ -763,7 +749,7 @@ const fundMountain = (currentAddress, options) => {
 };
 
 
-const createCustomBattleMtn = (options ,currentAddress) => {
+const createCustomBattleMtn = (options, currentAddress) => {
     if (!currentAddress) {
         console.log('createCustomBattleMtn: address needed');
         return;
@@ -778,12 +764,12 @@ const createCustomBattleMtn = (options ,currentAddress) => {
         .send(options);
 };
 
-const createVsBattle =  (options, currentAddress) => {
+const createVsBattle = (options, currentAddress) => {
     if (!currentAddress) {
         console.log('createVsBattle: address needed');
         return;
     }
-   
+
     options.from = currentAddress;
     options.gas = 7000000
     return getVSBattleContract()
@@ -824,7 +810,7 @@ const getPlayerMountainCount = (currentAddress) => {
         .call();
 };
 
-const initCustomBattleMtn =(
+const initCustomBattleMtn = (
     title,
     description,
     customBattleMtnAddress,
