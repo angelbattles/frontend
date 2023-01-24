@@ -451,6 +451,7 @@ const breedPets = (petId1, petId2, currentAddress, options) => {
 
 const retirePets = async (pets, currentAddress, options) => {
     options.from = currentAddress;
+    options.gas = 800000;
     return getPetsContract()
         .methods.retirePets(...pets)
         .send(options);
