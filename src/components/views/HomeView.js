@@ -53,7 +53,7 @@ const HomeView = ({ refreshAllTokens, packPrices, mobile }) => {
               <p>
                 Angel Battles is a decentralized application originally built on
                 the Ethereum blockchain in 2018.{' '}
-                <a href="https://www.angelbattles.com/historical">
+                <a href="https://www.angelbattles.com/historic">
                   Historic Site
                 </a>{' '}
               </p>
