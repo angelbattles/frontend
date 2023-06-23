@@ -27,7 +27,7 @@ import VsBattleBytecode from './bytecodes/VsBattleBytecode';
 let allTokens = [];
 
 async function getCurrentGasPrices() {
-    let response = await fetch('https://gasstation-mainnet.matic.network/v2')
+    let response = await fetch('https://gasstation.polygon.technology/')
     let body = await response.json();
     return body;
 
@@ -65,13 +65,13 @@ const getDefaultTransactionOptions = async () => {
     };
 
     const prices = await getCurrentGasPrices();
-
-    if (prices.standard.maxPriorityFee) {
-        options.maxPriorityFeePerGas = web3.utils.toWei(parseInt(prices.standard.maxPriorityFee, 10).toString(), 'gwei')
+    console.log(prices)
+    if (prices.standard) {
+        options.maxPriorityFeePerGas = web3.utils.toWei(parseInt(prices.standard, 10).toString(), 'gwei')
     }
-    if (prices.standard.maxFee) {
-        options.maxFeePerGas = web3.utils.toWei(parseInt(prices.standard.maxFee, 10).toString(), 'gwei')
-    }
+   
+    options.maxFeePerGas = web3.utils.toWei(parseInt(prices.standard + 1.1, 10).toString(), 'gwei')
+    
 
     console.log(options)
     return options;
