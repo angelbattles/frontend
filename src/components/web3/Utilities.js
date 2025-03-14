@@ -67,10 +67,10 @@ const getDefaultTransactionOptions = async () => {
     const prices = await getCurrentGasPrices();
     console.log(prices)
     if (prices.standard) {
-        options.maxPriorityFeePerGas = web3.utils.toWei(parseInt(prices.standard, 10).toString(), 'gwei')
+        options.maxPriorityFeePerGas = web3.utils.toWei(parseInt(prices.standard.maxPriorityFee, 10).toString(), 'gwei')
     }
    
-    options.maxFeePerGas = web3.utils.toWei(parseInt(prices.standard + 1.1, 10).toString(), 'gwei')
+    options.maxFeePerGas = web3.utils.toWei(parseInt(prices.standard.maxFee + 1.1, 10).toString(), 'gwei')
     
 
     console.log(options)
